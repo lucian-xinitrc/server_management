@@ -42,9 +42,7 @@ export default function Home() {
         } else {
           alert("Error");
         }
-
-    };
-    const data = await res.json();
+    const data = res.json();
     setRequests(data);
   };
 

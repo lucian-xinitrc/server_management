@@ -28,7 +28,7 @@ export default function Home() {
   const [selectedIdx, setSelectedIdx] = useState(null); // indexul cardului selectat
 
   const fetchRequests = async () => {
-    const res = await fetch("https://gethonis.com:8888/api/getOutput", {
+    const res = await fetch("http://gethonis.com:8888/api/getOutput", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
           body: JSON.stringify({

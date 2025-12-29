@@ -30,7 +30,7 @@ export default function Home() {
     e.preventDefault();
 
     try {
-      const res = await fetch("http://api.gethonis.com:8888/api/insertCustomCommand", {
+      const res = await fetch("https://mcapi.gethonis.com/api/insertCustomCommand", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
@@ -59,7 +59,7 @@ export default function Home() {
 
   const fetchRequests = async () => {
     try {
-      const res = await fetch("http://api.gethonis.com:8888/api/getOutput", {
+      const res = await fetch("https://mcapi.gethonis.com/api/getOutput", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({

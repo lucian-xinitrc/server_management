@@ -99,27 +99,33 @@ export default function Home() {
 
   return (
     <>
-    <section className="dark:bg-slate-950 bg-white h-screen content-center justify-center py-20">
-      <h2 className="mb-4 text-4xl font-extrabold leading-none tracking-tight text-gray-900 md:text-5xl lg:text-6xl dark:text-white text-center">{!logged ? "EverBlox Management" : ""}</h2>
+    <section className="dark:bg-black bg-black h-screen content-center justify-center py-15">
+      <h2 className="mb-4 text-4xl font-extrabold leading-none tracking-tight text-gray-900 md:text-5xl lg:text-6xl dark:text-white text-center">{!logged ? "EverBlox" : ""}</h2>
       <div className="bg-transparent px-5 py-10 mx-5 sm:mx-[30%] sm:w-auto  rounded-lg">
       <h2 className="mb-4 text-2xl font-extrabold leading-none tracking-tight text-gray-900 md:text-5xl lg:text-6xl dark:text-white text-center">{!logged ? "" : "Console"}</h2>
       <p className="mb-4 text-thin leading-none text-gray-900 md:text-thin lg:text-thin dark:text-white text-center">{!logged ? "" : "Everblox Console"}</p>
 
       {logged == false ? (
-          <form onSubmit={handleLogin} className="mb-5 flex justify-center font-bold">
+        <div className="flex justify-center">
+          <form onSubmit={handleLogin} className="mb-5 font-bold">
 
             <input type="password"
               placeholder="Insert password"
               value={password}
               onChange={(e) => setPassword(e.target.value)}
-              type="password"aria-describedby="helper-text-explanation" className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center transition duration-700 ease-in-out hover:bg-gray-100 hover:text-black dark:hover:bg-white dark:hover:text-black hover:border-transparent font-medium text-sm sm:text-base h-10 sm:h-12 p-6 sm:px-5 sm:w-auto text-[20px] sm:w-2xl w-[150px] focus:outline-none"/>
-            <button type="submit" className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center transition duration-700 ease-in-out hover:bg-gray-100 hover:text-black dark:hover:bg-white dark:hover:text-black hover:border-transparent font-medium text-sm sm:text-base h-10 sm:h-12 p-6 sm:px-5 w-auto sm:w-2xl md:w-[158px] mx-2 text-[20px]">
-              Login
-            </button>
+              type="password" 
+              aria-describedby="helper-text-explanation" 
+              className="rounded-2xl border shadow-white border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center transition duration-700 ease-in-out font-bold text-sm sm:text-base h-10 p-2 px-5 w-auto sm:text-[15px] focus:outline-none"/>
+            <div className="flex justify-center">
+              <button type="submit" className="mt-4 rounded-2xl bg-white border text-black border-solid hover:dark:border-white/[.145] border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center transition duration-700 ease-in-out hover:bg-gray-100 hover:text-black dark:hover:bg-black dark:hover:text-white hover:border-transparent font-bold text-sm sm:text-base h-10 px-10 sm:text-[15px]">
+                Login
+              </button>
+            </div>
           </form>
+          </div>
         ) : ( 
         <div>
-          <div className="w-full p-10 h-[500px] bg-black overflow-y-scroll no-scrollbar shadow-lg rounded-lg">
+          <div className="w-full pt-10 p-2 h-[500px] border-b border-b-solid border-b-white bg-black overflow-y-scroll no-scrollbar shadow-lg">
             {lines.map((line, idx) => (
                 <pre key={idx} className="text-thin" style={{ margin: 0 }}>{line}</pre>
 
@@ -128,14 +134,16 @@ export default function Home() {
             </div>
             
           </div>
-          <form onSubmit={handleInsertCustomCommand} className="mb-5 flex justify-center font-bold">
+          <form onSubmit={handleInsertCustomCommand} className="mb-5 mt-5 flex justify-center font-bold">
 
             <input type="text"
               placeholder="Type command"
               value={commando}
               onChange={(e) => setCommando(e.target.value)}
-              type="text "aria-describedby="helper-text-explanation" className="border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center transition duration-700 font-medium text-sm sm:text-base h-auto sm:h-8 p-2 mt-2 sm:px-5 sm:w-auto text-[20px] sm:w-2xl w-[150px] rounded-md focus:outline-none"/>
-            <button type="submit" className="border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center transition duration-700 ease-in-out font-medium text-sm sm:text-base h-auto sm:h-8 p-2 sm:px-5 w-auto mt-2 sm:w-2xl md:w-[158px] mx-2 text-[20px] bg-slate-800 rounded-md">
+              type="text"
+              aria-describedby="helper-text-explanation" 
+              className="rounded-2xl border shadow-white border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center transition duration-700 ease-in-out font-bold text-sm sm:text-base h-10 p-2 px-5 w-full mr-2 sm:text-[15px] focus:outline-none"/>
+            <button type="submit" className="rounded-2xl bg-white border text-black border-solid hover:dark:border-white/[.145] border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center transition duration-700 ease-in-out hover:bg-gray-100 hover:text-black dark:hover:bg-black dark:hover:text-white hover:border-transparent font-bold text-sm sm:text-base h-10 px-10 sm:text-[15px]">
               Insert
             </button>
           </form>
